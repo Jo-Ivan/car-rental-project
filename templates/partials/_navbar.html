@@ -1,8 +1,9 @@
 {% load static %}
+
 <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" to="/">
+      <a class="navbar-item" href="{% url 'index' %}">
         <strong class="is-size-5">car rental project</strong>
       </a>
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTopMain">
@@ -13,14 +14,14 @@
     </div>
     <div class="navbar-menu" id="navbarTopMain">
       <div class="navbar-end">
-        <a href="/list.html" class="navbar-item has-text-weight-semibold">List your car</a>
+        <a href="{% url 'list' %}" class="navbar-item has-text-weight-semibold">List your car</a>
         <div class="navbar-item">
-          <a href="/login.html" class="button">
+          <a href="{% url 'login' %}" class="button">
             Log in
           </a>
         </div>
         <div class="navbar-item">
-          <a href="/signup.html" class="button is-primary">
+          <a href="{% url 'signup' %}" class="button is-primary">
             Sign up
           </a>
         </div>

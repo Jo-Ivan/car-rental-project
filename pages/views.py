@@ -12,3 +12,7 @@ def login(request):
 
 def signup(request):
     return render(request, 'pages/signup.html')
+
+
+def list(request):
+    return render(request, 'pages/list.html')

@@ -1,4 +1,5 @@
 {% load static %}
+
 <footer class="hero is-small is-light">
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -6,7 +7,7 @@
         <div class="column">
           <nav class="has-text-grey-light">
             <a href="#" class="has-text-primary">About us</a> &bullet;
-            <a href="#" class="has-text-primary">List your car</a> &bullet;
+            <a href="{% url 'list' %}" class="has-text-primary">List your car</a> &bullet;
             <a href="#" class="has-text-primary">Contact us</a>
           </nav>
         </div>
