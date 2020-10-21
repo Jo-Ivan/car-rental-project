@@ -4,7 +4,7 @@ from users.models import User
 
 
 class Listing(models.Model):
-    # each listing is connected w/ a authenticated user
+    # each listing is connected w/ an authenticated user
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     # todo: take from car table car_year, car_make, car_model, car_category
