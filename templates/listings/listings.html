@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load humanize %}
+
 {% block content %}
 
 <div class="hero-body">
@@ -17,20 +19,20 @@
               <div class="card rb-card">
                 <div class="card-image">
                   <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
+                    <img src="{{ listing.photo_main.url }}" alt=" {{listing.car}} for rent">
                   </figure>
                 </div>
                 <div class="card-content">
                   <h2 class="title is-size-6">
                     <a href="#">
-                      Car for rent in<br /> Bronx
+                      {{listing.car}} for rent in<br /> {{listing.borough}}
                     </a>
                   </h2>
-                  <p>Title: </p>
-                  <p>Description: </p>
-                  <p>Price: </p>
-                  <p>Listing Date: </p>
-                  <p>Rental Status: </p>
+                  <p><strong>Title: </strong>{{listing.title}}</p>
+                  <p><strong>Description: </strong> {{listing.description}}</p>
+                  <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
+                  <p><strong>Listing Date: </strong> {{listing.list_date | timesince }}</p>
+                  <p><strong>Rental Status: </strong> {{listing.is_rented}}</p>
 
                 </div>
               </div>
