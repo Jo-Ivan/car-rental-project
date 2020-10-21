@@ -10,4 +10,4 @@ class User(models.Model):
     created_at = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return self.first_name
+        return self.email
