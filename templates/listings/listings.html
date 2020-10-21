@@ -31,9 +31,10 @@
                   <p><strong>Title: </strong>{{listing.title}}</p>
                   <p><strong>Description: </strong> {{listing.description}}</p>
                   <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
-                  <p><strong>Listing Date: </strong> {{listing.list_date | timesince }}</p>
+                  <p><strong>Listing Date: </strong> {{listing.list_date}}</p>
                   <p><strong>Rental Status: </strong> {{listing.is_rented}}</p>
 
+                  <a href="{% url 'listing' listing.id %}" class="button is-dark">More info</a>
                 </div>
               </div>
             </div>
