@@ -7,10 +7,12 @@
     <div class="columns is-centered">
       <div class="column is-10">
         <div class="sub-section">
-          <h3 class="title is-size-4">Find cars in all New York City boroughs</h3>
+          <!-- <h3 class="title is-size-4">Find cars in all New York City boroughs</h3>
           <h4 class="subtitle is-size-6">Whether you are looking for a Honda Civic or a BMW M3 we got 'em all.
-          </h4>
+          </h4> -->
           <div class="columns">
+            {% if listings %}
+            {% for listing in listings %}
             <div class="column">
               <div class="card rb-card">
                 <div class="card-image">
@@ -24,123 +26,22 @@
                       Car for rent in<br /> Bronx
                     </a>
                   </h2>
+                  <p>Title: </p>
+                  <p>Description: </p>
+                  <p>Price: </p>
+                  <p>Listing Date: </p>
+                  <p>Rental Status: </p>
+
                 </div>
               </div>
             </div>
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Queens
-                    </a>
-                  </h2>
-                </div>
-              </div>
+            {% endfor %}
+            {% else %}
+            <div class="is-centered">
+              <p>There are currently no listings available. Maybe you should add one?</p>
             </div>
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Staten Island
-                    </a>
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Manhattan
-                    </a>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Brooklyn
-                    </a>
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Queens
-                    </a>
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Queens
-                    </a>
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card rb-card">
-                <div class="card-image">
-                  <figure class="image is-16by9">
-                    <img src="https://via.placeholder.com/640x360" alt=" for rent">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <h2 class="title is-size-6">
-                    <a href="#">
-                      Car for rent in<br /> Manhattan
-                    </a>
-                  </h2>
-                </div>
-              </div>
-            </div>
+            {% endif %}
+
           </div>
         </div>
       </div>
