@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 
+{% load humanize %}
+
 {% block content %}
 
-<h1>Listing</h1>
+<!-- todo: check if each individual photo url is in database -->
+
+<div class="card rb-card">
+  <div class="card-image">
+    <figure class="image is-16by9">
+      <img src="{{ listing.photo_main.url }}" alt=" {{listing.car}} for rent">
+    </figure>
+  </div>
+  <div class="card-content">
+    <h2 class="title is-size-6">
+      <a href="#">
+        {{listing.car}} for rent in<br /> {{listing.borough}}
+      </a>
+    </h2>
+    <p><strong>Title: </strong>{{listing.title}}</p>
+    <p><strong>Description: </strong> {{listing.description}}</p>
+    <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
+    <p><strong>Listing Date: </strong> {{listing.list_date}}</p>
+    <p><strong>Rental Status: </strong> {{listing.is_rented}}</p>
+  </div>
+</div>
 
 {% endblock %}

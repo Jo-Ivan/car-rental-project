@@ -24,15 +24,12 @@
                 </div>
                 <div class="card-content">
                   <h2 class="title is-size-6">
-                    <a href="#">
+                    <a href="{% url 'listing' listing.id %}">
                       {{listing.car}} for rent in<br /> {{listing.borough}}
                     </a>
                   </h2>
                   <p><strong>Title: </strong>{{listing.title}}</p>
-                  <p><strong>Description: </strong> {{listing.description}}</p>
                   <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
-                  <p><strong>Listing Date: </strong> {{listing.list_date}}</p>
-                  <p><strong>Rental Status: </strong> {{listing.is_rented}}</p>
 
                   <a href="{% url 'listing' listing.id %}" class="button is-dark">More info</a>
                 </div>
