@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
+from .choices import borough_choices
+
 from .models import Listing
 
 
@@ -29,4 +31,15 @@ def listing(request, listing_id):
 
 
 def search(request):
-    return render(request, 'listings/search.html')
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    context = {
+        'listings': paged_listings,
+        'borough_choices': borough_choices,
+    }
+
+    return render(request, 'listings/search.html', context)
