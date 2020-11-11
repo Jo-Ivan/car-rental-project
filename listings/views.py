@@ -69,6 +69,7 @@ def search(request):
     context = {
         'listings': paged_listings,
         'borough_choices': borough_choices,
+        'values': request.GET
     }
 
     return render(request, 'listings/search.html', context)

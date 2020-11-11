@@ -9,21 +9,22 @@
       <div class="field">
         <label class="label">Car</label>
         <div class="control">
-          <input class="input" type="text" name="cars" placeholder="Car">
+          <input class="input" type="text" name="cars" placeholder="Car" value="{{ values.cars }}">
         </div>
       </div>
 
       <div class="field">
-        <label class="label">Keyword</label>
+        <label class="label">Keywords</label>
         <div class="control">
-          <input class="input" type="text" name="keywords" placeholder="Keyword (description)">
+          <input class="input" type="text" name="keywords" placeholder="Keyword (description)"
+            value="{{ values.keywords }}">
         </div>
       </div>
 
       <div class="field">
         <label class="label">Max Price Per Day</label>
         <div class="control">
-          <input class="input" type="number" name="price" placeholder="Max Price Per Day">
+          <input class="input" type="number" name="price" placeholder="Max Price Per Day" value="{{ values.price }}">
         </div>
       </div>
 
@@ -34,7 +35,7 @@
             <select name="borough">
               <option selected="true" disabled="disabled">Borough (All)</option>
               {% for key,value in borough_choices.items %}
-              <option value="{{ key }}">{{ value }}</option>
+              <option value="{{ key }}" {% if key == values.borough %} selected {% endif %}>{{ value }}</option>
               {% endfor %}
             </select>
           </div>
