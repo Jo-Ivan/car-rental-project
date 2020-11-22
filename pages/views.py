@@ -18,13 +18,5 @@ def index(request):
     return render(request, 'pages/index.html', context)
 
 
-def login(request):
-    return render(request, 'pages/login.html')
-
-
-def signup(request):
-    return render(request, 'pages/signup.html')
-
-
 def list(request):
     return render(request, 'pages/list.html')

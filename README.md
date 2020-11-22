@@ -6,12 +6,12 @@
 - [ ] plaintext password must be hashed
 - [ ] login and register (can only list car/rent a car if authenticated)
 - [ ] implement car model list table into 'list your car form' (possibly search bar that checks for a car in the database)
-- [ ] search option that queries if a certain car is available in the listing database
+- [x] search option that queries if a certain car is available in the listing database
 - [ ] let listing owner have an option if their car is currently being rented out
 - [ ] let the listing owner delete their listing
 - [ ] let other users contact the person who created the listing
 
 ### future todos:
-- [ ] nav bar should have highlights depending on which page it's on
+- [x] nav bar should have highlights depending on which page it's on
 - [ ] possibly make ui/ux even more simplified
 - [ ] dummy online payment method?
