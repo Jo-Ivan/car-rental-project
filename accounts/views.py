@@ -7,7 +7,7 @@ def register(request):
         messages.error(request, 'Testing error message')
         return redirect('register')
     else:
-        return render(request, 'users/register.html')
+        return render(request, 'accounts/register.html')
 
 
 def login(request):
@@ -15,7 +15,7 @@ def login(request):
         # login user
         return
     else:
-        return render(request, 'users/login.html')
+        return render(request, 'accounts/login.html')
 
 
 def logout(request):
@@ -23,4 +23,4 @@ def logout(request):
 
 
 def dashboard(request):
-    return render(request, 'users/dashboard.html')
+    return render(request, 'accounts/dashboard.html')
