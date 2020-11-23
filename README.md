@@ -3,7 +3,7 @@
 ### current todos:
 - [ ] finish up list your car page in front end
 - [x] create a page that shows even more listing information by clicking card (users are able to see the description of the listing, contact the listing owner, and check for more pictures)
-- [ ] plaintext password must be hashed
+- [x] plaintext password must be hashed (password hashes automatically with django)
 - [ ] login and register (can only list car/rent a car if authenticated)
 - [ ] implement car model list table into 'list your car form' (possibly search bar that checks for a car in the database)
 - [x] search option that queries if a certain car is available in the listing database

@@ -3,9 +3,13 @@
 {% block content %}
 <div class="hero-body">
   <div class="container">
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
+
     <h3 class="title is-size-4">Find cars in all New York City boroughs</h3>
     <h4 class="subtitle is-size-6">Whether you are looking for a Honda Civic or a BMW M3 we got 'em all.
     </h4>
+
 
     <form action="{% url 'search' %}">
       <div class="field">
