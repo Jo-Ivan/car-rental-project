@@ -5,45 +5,66 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-        <form action="" class="box">
+        <!-- Alerts -->
+        {% include 'partials/_alerts.html' %}
+        <form action="{% url 'register' %}" method="POST" class="box">
+          {% csrf_token %}
           <div class="field">
-            <label for="" class="label">First Name</label>
+            <label for="firstname" class="label">First Name</label>
             <div class="control has-icons-left">
-              <input placeholder="John" class="input" required>
+              <input name="firstname" placeholder="John" class="input" required>
               <span class="icon is-small is-left">
                 <i class="fa fa-user"></i>
               </span>
             </div>
           </div>
           <div class="field">
-            <label for="" class="label">Last Name</label>
+            <label for="lastname" class="label">Last Name</label>
             <div class="control has-icons-left">
-              <input placeholder="Smith" class="input" required>
+              <input name="lastname" placeholder="Smith" class="input" required>
               <span class="icon is-small is-left">
                 <i class="fa fa-user"></i>
               </span>
             </div>
           </div>
           <div class="field">
-            <label for="" class="label">Email</label>
+            <label for="lastname" class="label">Username</label>
             <div class="control has-icons-left">
-              <input type="email" placeholder="e.g. johnsmith@gmail.com" class="input" required>
+              <input name="username" placeholder="johnsmith" class="input" required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email" class="label">Email</label>
+            <div class="control has-icons-left">
+              <input name="email" type="email" placeholder="e.g. johnsmith@gmail.com" class="input" required>
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
             </div>
           </div>
           <div class="field">
-            <label for="" class="label">Password</label>
+            <label for="password" class="label">Password</label>
             <div class="control has-icons-left">
-              <input type="password" placeholder="*******" class="input" required>
+              <input name="password" type="password" placeholder="*******" class="input" required>
               <span class="icon is-small is-left">
                 <i class="fa fa-lock"></i>
               </span>
             </div>
           </div>
           <div class="field">
-            <button class="button is-success">
+            <label for="password2" class="label">Confirm Password</label>
+            <div class="control has-icons-left">
+              <input name="password2" type="password" placeholder="*******" class="input" required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-lock"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <button class="button is-primary">
               Sign up
             </button>
           </div>
