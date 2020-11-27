@@ -3,7 +3,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 
 
-def register(request):
+def signup(request):
     if request.method == 'POST':
         # Get form values
         first_name = request.POST['firstname']
@@ -18,15 +18,15 @@ def register(request):
             # Check username
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'That username is taken')
-                return redirect('register')
+                return redirect('signup')
             else:
                 if User.objects.filter(email=email).exists():
                     messages.error(request, 'That email is taken')
-                    return redirect('register')
+                    return redirect('signup')
                 else:
                     user = User.objects.create_user(
                         username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-                    # Login after register
+                    # Login after signup
                     auth.login(request, user)
                     messages.success(request, 'You are now logged in')
                     return redirect('dashboard')
@@ -37,10 +37,10 @@ def register(request):
 
         else:
             messages.error(request, 'Passwords do not match')
-            return redirect('register')
+            return redirect('signup')
 
     else:
-        return render(request, 'accounts/register.html')
+        return render(request, 'accounts/signup.html')
 
 
 def login(request):

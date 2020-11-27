@@ -16,7 +16,7 @@
     <div class="navbar-end">
       <a href="{% url 'listings' %}" {% if 'listings' in request.path %}
         class="navbar-item has-text-weight-semibold is-active" {% else %} class="navbar-item has-text-weight-semibold"
-        {% endif %}>Browse all rentals</a>
+        {% endif %}>Browse rentals</a>
       {% if user.is_authenticated %}
       <a href="{% url 'listyourcar' %}" {% if 'listyourcar' in request.path %}
         class="navbar-item has-text-weight-semibold is-active" {% else %} class="navbar-item has-text-weight-semibold"
@@ -43,7 +43,7 @@
         </a>
       </div>
       <div class="navbar-item">
-        <a href="{% url 'register' %}" class="button is-primary">
+        <a href="{% url 'signup' %}" class="button is-primary">
           Sign up
         </a>
       </div>
