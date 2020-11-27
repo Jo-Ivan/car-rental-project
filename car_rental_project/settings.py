@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'car_rental_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crpdb2',
+        'NAME': 'crpdb',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost'

@@ -1,11 +1,11 @@
 from django.db import models
 from datetime import datetime
-from accounts.models import Account
+from django.contrib.auth.models import User
 
 
 class Listing(models.Model):
     # each listing is connected w/ an authenticated user
-    account = models.ForeignKey(Account, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
     # todo: take from car table car_year, car_make, car_model, car_category
     car = models.CharField(max_length=200)
