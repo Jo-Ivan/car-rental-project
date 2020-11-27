@@ -1,32 +1,30 @@
 {% load static %}
 
-<nav class="navbar is-light is-spaced" role="navigation" aria-label="main navigation">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{% url 'index' %}">
-        <strong class="is-size-5">car rental project</strong>
-      </a>
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTopMain">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div class="navbar-menu" id="navbarTopMain">
+<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{% url 'index' %}">
+      <strong class="is-size-5">car rental project</strong>
+    </a>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTopMain">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu" id="navbarTopMain">
 
-      <div class="navbar-end">
-        <a href="{% url 'listings' %}" class="navbar-item has-text-weight-semibold">Browse all rentals</a>
-        <a href="{% url 'list' %}" class="navbar-item has-text-weight-semibold">List your car</a>
-        <div class="navbar-item">
-          <a href="{% url 'login' %}" class="button">
-            Log in
-          </a>
-        </div>
-        <div class="navbar-item">
-          <a href="{% url 'register' %}" class="button is-primary">
-            Sign up
-          </a>
-        </div>
+    <div class="navbar-end">
+      <a href="{% url 'listings' %}" class="navbar-item has-text-weight-semibold">Browse all rentals</a>
+      <a href="{% url 'list' %}" class="navbar-item has-text-weight-semibold">List your car</a>
+      <div class="navbar-item">
+        <a href="{% url 'login' %}" class="button">
+          Log in
+        </a>
+      </div>
+      <div class="navbar-item">
+        <a href="{% url 'register' %}" class="button is-primary">
+          Sign up
+        </a>
       </div>
     </div>
   </div>
