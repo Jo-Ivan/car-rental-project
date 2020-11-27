@@ -14,8 +14,29 @@
   <div class="navbar-menu" id="navbarTopMain">
 
     <div class="navbar-end">
-      <a href="{% url 'listings' %}" class="navbar-item has-text-weight-semibold">Browse all rentals</a>
-      <a href="{% url 'list' %}" class="navbar-item has-text-weight-semibold">List your car</a>
+      <a href="{% url 'listings' %}" {% if 'listings' in request.path %}
+        class="navbar-item has-text-weight-semibold is-active" {% else %} class="navbar-item has-text-weight-semibold"
+        {% endif %}>Browse all rentals</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'listyourcar' %}" {% if 'listyourcar' in request.path %}
+        class="navbar-item has-text-weight-semibold is-active" {% else %} class="navbar-item has-text-weight-semibold"
+        {% endif %}>List your car</a>
+
+      <a href="{% url 'dashboard' %}" {% if 'dashboard' in request.path %}
+        class="navbar-item has-text-weight-semibold is-active" {% else %} class="navbar-item has-text-weight-semibold"
+        {% endif %} class="navbar-item has-text-weight-semibold">Dashboard</a>
+
+      <div class="navbar-item">
+        <a href="javascript:{document.getElementById('logout').submit()}" class="button">
+          Log out
+        </a>
+        <form action="{% url 'logout' %}" method="POST" id="logout">
+          {% csrf_token %}
+          <input type="hidden">
+        </form>
+      </div>
+
+      {% else %}
       <div class="navbar-item">
         <a href="{% url 'login' %}" class="button">
           Log in
@@ -26,6 +47,7 @@
           Sign up
         </a>
       </div>
+      {% endif %}
     </div>
   </div>
 </nav>

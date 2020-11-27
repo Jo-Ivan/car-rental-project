@@ -5,10 +5,11 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-        <!-- Alerts -->
-        {% include 'partials/_alerts.html' %}
         <form action="{% url 'register' %}" method="POST" class="box">
           {% csrf_token %}
+          <div class="field">
+            <h2 class="is-size-2 has-text-centered">Sign up</h2>
+          </div>
           <div class="field">
             <label for="firstname" class="label">First Name</label>
             <div class="control has-icons-left">
@@ -64,8 +65,8 @@
             </div>
           </div>
           <div class="field">
-            <button class="button is-primary">
-              Sign up
+            <button class="button is-primary is-fullwidth">
+              Continue
             </button>
           </div>
         </form>

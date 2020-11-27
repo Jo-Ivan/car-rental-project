@@ -10,6 +10,9 @@
         <form action="{% url 'login' %}" method="POST" class="box">
           {% csrf_token %}
           <div class="field">
+            <h2 class="is-size-2 has-text-centered">Login</h2>
+          </div>
+          <div class="field">
             <label for="username" class="label">Username</label>
             <div class="control has-icons-left">
               <input name="username" type="username" placeholder="e.g. johnsmith" class="input" required>
@@ -28,8 +31,8 @@
             </div>
           </div>
           <div class="field">
-            <button class="button is-primary">
-              Login
+            <button class="button is-primary is-fullwidth">
+              Continue
             </button>
           </div>
         </form>

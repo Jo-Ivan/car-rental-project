@@ -10,19 +10,21 @@
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li><a href="{% url 'index' %}">Home</a></li>
-        <li class="is-active"><a href="{% url 'dashboard' %}" aria-current="page">Dashboard</a></li>
+        <li class="is-active"><a href="{% url 'dashboard' %}" aria-current="page">Dashboard
+            &nbsp;<strong>({{ user.username }})</strong></a>
+        </li>
       </ul>
     </nav>
 
-    <h2 class="is-size-2">Welcome User!</h2>
+    <h2 class="is-size-2">Welcome {{ user.first_name }}!</h2>
 
-    <h5 class="is-size-5">Here are the listings that you have posted</h5>
+    <h5 class="is-size-5">Here are the listings that you have posted:</h5>
     <table class="table is-fullwidth">
       <thead>
         <tr>
-          <th><abbr title="Position">Pos</abbr></th>
-          <th>Team</th>
-          <th><abbr title="Played">Pld</abbr></th>
+          <th><abbr title="Position">#</abbr></th>
+          <th>Listing</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -41,13 +43,13 @@
       </tbody>
     </table>
 
-    <h5 class="is-size-5">Here are the listings that you have inquired about</h5>
+    <h5 class="is-size-5">Here are the listings that you have inquired about:</h5>
     <table class="table is-fullwidth">
       <thead>
         <tr>
-          <th><abbr title="Position">Pos</abbr></th>
-          <th>Team</th>
-          <th><abbr title="Played">Pld</abbr></th>
+          <th><abbr title="Position">#</abbr></th>
+          <th>Listing</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

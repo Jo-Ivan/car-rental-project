@@ -18,5 +18,5 @@ def index(request):
     return render(request, 'pages/index.html', context)
 
 
-def list(request):
-    return render(request, 'pages/list.html')
+def listyourcar(request):
+    return render(request, 'pages/listyourcar.html')
