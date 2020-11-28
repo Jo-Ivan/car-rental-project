@@ -7,9 +7,11 @@
 {% block content %}
 
 <!-- todo: check if each individual photo url is in database -->
-<!-- todo: back button -->
 <div class="hero-body">
   <div class="container">
+
+    <!-- Alerts -->
+    {% include 'partials/_alerts.html' %}
 
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
@@ -27,11 +29,8 @@
         </figure>
       </div>
       <div class="card-content">
-        <h2 class="title is-size-3">
-          <a href="#">
-            {{listing.car}} for rent in<br /> {{listing.borough}}
-          </a>
-        </h2>
+        <h2 class="title is-size-3">{{listing.car}} for rent in<br /> {{listing.borough}}</h2>
+
         <p><strong>Title: </strong>{{listing.title}}</p>
         <p><strong>Description: </strong> {{listing.description}}</p>
         <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
@@ -40,64 +39,83 @@
         <p><strong>Username: </strong>{{listing.user}}</p>
 
         {% if user.is_authenticated %}
-        <div class="mt-2">
-          <h2 class="title is-size-3">Contact form</h2>
-          <div class="field">
-            <label class="label">Name</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Text input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-            </div>
-          </div>
+        <div class="mt-3">
+          <h2 class="is-size-3 mb-4">Contact form to {{ listing.user }}</h2>
+          <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
 
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Text input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-            </div>
-          </div>
+            {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            {% else %}
+            <input type="hidden" name="user_id" value="0">
+            {% endif %}
 
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-              </span>
-            </div>
-          </div>
+            <input type="hidden" name="listing_owner_email" value="{{ listing.user.email }}">
+            <input type="hidden" name="listing_id" value="{{ listing.id }}">
 
-          <div class="field">
-            <label class="label">Phone</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-phone"></i>
-              </span>
+            <div class="field">
+              <label for="listing" class="label">Listing</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="listing" type="text" placeholder="Text input" value="{{ listing.title }}"
+                  readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-list"></i>
+                </span>
+              </div>
             </div>
-          </div>
 
-          <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
+            <div class="field">
+              <label for="name" class="label">Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="name" type="text" placeholder="Text input" {% if user.is_authenticated %}
+                  value="{{ user.first_name }} {{ user.last_name }}" {% endif %}readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
             </div>
-          </div>
 
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-primary">Submit</button>
+            <div class="field">
+              <label for="email" class="label">Email</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="email" type="email" placeholder="Email input" {% if user.is_authenticated %}
+                  value="{{ user.email }}" {% endif %} readonly>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
             </div>
-          </div>
+
+            <div class="field">
+              <label for="name" class="label">Phone</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="phone" type="text" placeholder="Text input">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-phone"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message" class="label">Message</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="message" type="text" placeholder="Text input">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-sticky-note"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-primary">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
         {% else %}
-        <div>
-          <p>You must login to contact this user</p>
+        <div class="mt-3">
+          <h4 class="is-size-4">You must login to contact {{ listing.user }}.</h4>
         </div>
         {% endif %}
       </div>

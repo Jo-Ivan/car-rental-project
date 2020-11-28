@@ -5,62 +5,65 @@
 {% block title %}· Browse rentals{% endblock %}
 
 {% block content %}
-
 <div class="hero-body">
   <div class="container">
-    <form action="{% url 'search' %}">
-      <div class="field">
-        <label class="label">Car</label>
-        <div class="control">
-          <input class="input" type="text" name="cars" placeholder="Car">
-        </div>
-      </div>
 
-      <div class="field">
-        <label class="label">Keyword</label>
-        <div class="control">
-          <input class="input" type="text" name="keywords" placeholder="Keyword (description)">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Max Price Per Day</label>
-        <div class="control">
-          <input class="input" type="number" name="price" placeholder="Max Price Per Day">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Borough</label>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select name="borough">
-              <option selected="true" disabled="disabled">Borough (All)</option>
-              {% for key,value in borough_choices.items %}
-              <option value="{{ key }}">{{ value }}</option>
-              {% endfor %}
-            </select>
+    <div class="mb-4">
+      <form action="{% url 'search' %}">
+        <div class="field">
+          <label class="label">Car</label>
+          <div class="control">
+            <input class="input" type="text" name="cars" placeholder="Car">
           </div>
         </div>
-      </div>
 
-      <div class="field">
-        <div class="control">
-          <button class="button is-primary" type="submit">Search</button>
+        <div class="field">
+          <label class="label">Keyword</label>
+          <div class="control">
+            <input class="input" type="text" name="keywords" placeholder="Keyword (description)">
+          </div>
         </div>
-      </div>
-    </form>
+
+        <div class="field">
+          <label class="label">Max Price Per Day</label>
+          <div class="control">
+            <input class="input" type="number" name="price" placeholder="Max Price Per Day">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Borough</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select name="borough">
+                <option selected="true" disabled="disabled">Borough (All)</option>
+                {% for key,value in borough_choices.items %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li><a href="{% url 'index' %}">Home</a></li>
-        <li class="is-active"><a href="{% url 'listings' %}" aria-current="page">Browse Listings</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Browse Listings</a></li>
       </ul>
     </nav>
 
     <div class="columns is-centered">
       <div class="column is-10">
         <div class="sub-section">
+
           <div class="columns">
             {% if listings %}
             {% for listing in listings %}
@@ -87,7 +90,7 @@
             {% endfor %}
             {% else %}
             <div class="is-centered">
-              <p>There are currently no listings available. Maybe you should add one?</p>
+              <p>There are currently no listings available.</p>
             </div>
             {% endif %}
           </div>
