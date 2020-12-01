@@ -1,5 +1,6 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.contrib import messages
 
 from .choices import borough_choices
 
@@ -74,3 +75,23 @@ def search(request):
     }
 
     return render(request, 'listings/search.html', context)
+
+
+def list_your_car_form(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        car = request.POST['car']
+        borough = request.POST['borough']
+        description = request.POST['description']
+        price = request.POST['price']
+        user_id = request.POST['user_id']
+
+        listing = Listing(title=title, car=car, borough=borough,
+                          description=description, price=price, user_id=user_id)
+
+        listing.save()
+
+        messages.success(request, 'Your listing has been submitted')
+
+        return render(request, 'accounts/dashboard.html')
+    return

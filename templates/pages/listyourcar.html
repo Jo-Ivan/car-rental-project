@@ -3,10 +3,88 @@
 {% block title %}· List your car{% endblock %}
 
 {% block content %}
+<div class="hero-body">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+        {% if user.is_authenticated %}
+        <form action="{% url 'list_your_car_form' %}" method="POST" class="box">
+          {% csrf_token %}
+          <div class="field">
+            <h2 class="is-size-2 has-text-centered">List your car</h2>
+          </div>
 
-<div class="container is-fluid">
-  <h1>List</h1>
+          <input type="hidden" name="user_id" value="{{ user.id }}">
 
+          <div class="field">
+            <label for="title" class="label">Listing Title</label>
+            <div class="control has-icons-left">
+              <input name="title" placeholder="e.g. Toyota Corolla 2020 in great condition" class="input" required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-list"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="car" class="label">Car</label>
+            <div class="control has-icons-left">
+              <input name="car" placeholder="e.g. Toyota Corolla 2020" class="input" required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-car"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="description" class="label">Description</label>
+            <div class="control has-icons-left">
+              <input name="description" placeholder="e.g. This car can handle all types of weather" class="input"
+                required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-list"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Borough</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select name="borough">
+                  {% for key,value in borough_choices.items %}
+                  <option value="{{ key }}">{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="price" class="label">Price per day</label>
+            <div class="control has-icons-left">
+              <input name="price" placeholder="e.g. 50" class="input" required>
+              <span class="icon is-small is-left">
+                <i class="fa fa-dollar-sign"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <button class="button is-primary is-fullwidth">
+              Continue
+            </button>
+          </div>
+        </form>
+        {% else %}
+        <div class="mt-3">
+          <h4 class="is-size-4">You must be logged in to create a listing.</h4>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

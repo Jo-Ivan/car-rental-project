@@ -43,5 +43,5 @@ def contact(request):
         messages.success(
             request, 'Your request has been submitted, the listing owner will get back to you soon')
 
-        return redirect('listing', listing_id=listing_id)
+        return render(request, 'accounts/dashboard.html')
     return

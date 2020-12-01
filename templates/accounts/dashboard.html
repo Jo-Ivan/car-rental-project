@@ -21,48 +21,64 @@
     <h2 class="is-size-2">Welcome {{ user.first_name }}!</h2>
 
     <h5 class="is-size-5">Here are the listings that you have posted:</h5>
+    {% if listings %}
     <table class="table is-fullwidth">
       <thead>
         <tr>
-          <th><abbr title="Position">#</abbr></th>
+          <th>#</th>
           <th>Listing</th>
+          <th></th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
+        {% for listing in listings %}
         <tr>
-          <th>1</th>
-          <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a>
-            <strong>(C)</strong>
+          <th>{{ listing.id }}</th>
+          <td>{{ listing.title }}</td>
+          <td>
+            <a class="button is-small" href="{% url 'listing' listing.id %}">View Listing</a>
           </td>
-          <td>38</td>
-        </tr>
-    </table>
-
-    <h5 class="is-size-5">Here are the listings that you have inquired about:</h5>
-    <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th><abbr title="Position">#</abbr></th>
-          <th>Listing</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a>
-            <strong>(C)</strong>
+          <td>
+            <a class="button is-small is-link" href="{% url 'listing' listing.id %}">Edit Listing</a>
           </td>
-          <td>38</td>
+          <td>
+            <a class="button is-small is-danger" href="{% url 'listing' listing.id %}">Delete Listing</a>
+          </td>
         </tr>
-        <tr>
-          <th>2</th>
-          <td><a href="https://en.wikipedia.org/wiki/Arsenal_F.C." title="Arsenal F.C.">Arsenal</a></td>
-          <td>38</td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
+    {% else %}
+    <p>You have not posted any listings.</p>
+    {% endif %}
+
+    <h5 class="is-size-5">Here are the listings that you have inquired about:</h5>
+    {% if contacts %}
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Listing</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for contact in contacts %}
+        <tr>
+          <th>{{ contact.id }}</th>
+          <td>{{ contact.listing }}</td>
+          <td>
+            <a class="button is-small" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>You have not made any inquiries.</p>
+    {% endif %}
 
   </div>
 </div>

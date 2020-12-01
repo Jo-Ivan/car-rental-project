@@ -19,4 +19,7 @@ def index(request):
 
 
 def listyourcar(request):
-    return render(request, 'pages/listyourcar.html')
+    context = {
+        'borough_choices': borough_choices
+    }
+    return render(request, 'pages/listyourcar.html', context)
