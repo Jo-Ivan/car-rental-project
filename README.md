@@ -9,5 +9,5 @@
 - [x] finish up list your car page in front end
 - [x] implement list your car form
 - [x] let the listing owner delete their listing
-- [ ] let listing owner have an option if their car is currently being rented out
+- [x] let listing owner have an option if their car is currently being rented out
 - [ ] host the web app

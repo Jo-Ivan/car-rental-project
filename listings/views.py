@@ -99,9 +99,25 @@ def listing_create(request):
 
 
 def listing_delete(request, listing_id):
-    print(listing_id)
     if request.method == 'POST':
         listing = Listing.objects.get(id=listing_id)
         listing.delete()
 
     return redirect('dashboard')
+
+
+def listing_edit(request, listing_id):
+    if request.method == 'POST':
+        listing = Listing.objects.get(id=listing_id)
+        print(listing.is_rented)
+        if listing.is_rented == False:
+            listing.is_rented = True
+        else:
+            listing.is_rented = False
+
+        listing.save()
+
+        messages.success(request, 'Your listing has been edited')
+
+        return redirect('dashboard')
+    return
