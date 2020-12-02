@@ -3,10 +3,11 @@
 {% block title %}· List your car{% endblock %}
 
 {% block content %}
+
 <div class="hero-body">
-  <div class="container">
+  <div class="container is-fluid">
     <div class="columns is-centered">
-      <div class="column is-6-tablet is-5-desktop is-4-widescreen">
+      <div class="column is-6-tablet is-7-desktop is-8-widescreen">
 
         {% if user.is_authenticated %}
         <form action="{% url 'listing_create' %}" method="POST" class="box" enctype="multipart/form-data">
