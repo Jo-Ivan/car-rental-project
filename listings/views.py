@@ -77,7 +77,7 @@ def search(request):
     return render(request, 'listings/search.html', context)
 
 
-def listyourcar_form(request):
+def listing_create(request):
     if request.method == 'POST':
         title = request.POST['title']
         car = request.POST['car']
@@ -96,3 +96,12 @@ def listyourcar_form(request):
 
         return redirect('dashboard')
     return
+
+
+def listing_delete(request, listing_id):
+    print(listing_id)
+    if request.method == 'POST':
+        listing = Listing.objects.get(id=listing_id)
+        listing.delete()
+
+    return redirect('dashboard')

@@ -15,48 +15,59 @@
     </h4>
 
 
-    <form action="{% url 'search' %}">
-      <div class="field">
-        <label class="label">Car</label>
-        <div class="control">
-          <input class="input" type="text" name="cars" placeholder="Car">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Keyword</label>
-        <div class="control">
-          <input class="input" type="text" name="keywords" placeholder="Keyword (description)">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Max Price Per Day</label>
-        <div class="control">
-          <input class="input" type="number" name="price" placeholder="Max Price Per Day">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Borough</label>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select name="borough">
-              <option selected="true" disabled="disabled">Borough (All)</option>
-              {% for key,value in borough_choices.items %}
-              <option value="{{ key }}">{{ value }}</option>
-              {% endfor %}
-            </select>
+    <div class="mb-4">
+      <form action="{% url 'search' %}">
+        <div class="field">
+          <label class="label">Car</label>
+          <div class="control has-icons-left">
+            <input class="input" type="text" name="cars" placeholder="Car">
+            <span class="icon is-small is-left">
+              <i class="fa fa-car"></i>
+            </span>
           </div>
         </div>
-      </div>
 
-      <div class="field">
-        <div class="control">
-          <button class="button is-primary" type="submit">Search</button>
+        <div class="field">
+          <label class="label">Keyword</label>
+          <div class="control has-icons-left">
+            <input class="input" type="text" name="keywords" placeholder="Keyword (description)">
+            <span class="icon is-small is-left">
+              <i class="fa fa-list"></i>
+            </span>
+          </div>
         </div>
-      </div>
-    </form>
+
+        <div class="field">
+          <label class="label">Max Price Per Day</label>
+          <div class="control has-icons-left">
+            <input class="input" type="number" name="price" placeholder="Max Price Per Day">
+            <span class="icon is-small is-left">
+              <i class="fa fa-dollar-sign"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Borough</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select name="borough">
+                <option selected="true" disabled="disabled">Borough (All)</option>
+                {% for key,value in borough_choices.items %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button class="button is-primary" type="submit">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
 
   </div>
 </div>

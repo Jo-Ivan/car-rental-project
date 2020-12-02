@@ -12,22 +12,31 @@
       <form action="{% url 'search' %}">
         <div class="field">
           <label class="label">Car</label>
-          <div class="control">
+          <div class="control has-icons-left">
             <input class="input" type="text" name="cars" placeholder="Car">
+            <span class="icon is-small is-left">
+              <i class="fa fa-car"></i>
+            </span>
           </div>
         </div>
 
         <div class="field">
           <label class="label">Keyword</label>
-          <div class="control">
+          <div class="control has-icons-left">
             <input class="input" type="text" name="keywords" placeholder="Keyword (description)">
+            <span class="icon is-small is-left">
+              <i class="fa fa-list"></i>
+            </span>
           </div>
         </div>
 
         <div class="field">
           <label class="label">Max Price Per Day</label>
-          <div class="control">
+          <div class="control has-icons-left">
             <input class="input" type="number" name="price" placeholder="Max Price Per Day">
+            <span class="icon is-small is-left">
+              <i class="fa fa-dollar-sign"></i>
+            </span>
           </div>
         </div>
 

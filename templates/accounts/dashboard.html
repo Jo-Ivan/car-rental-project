@@ -26,7 +26,7 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Listing</th>
+          <th>Listing Title</th>
           <th></th>
           <th></th>
           <th></th>
@@ -41,10 +41,13 @@
             <a class="button is-small" href="{% url 'listing' listing.id %}">View Listing</a>
           </td>
           <td>
-            <a class="button is-small is-link" href="{% url 'listing' listing.id %}">Edit Listing</a>
+            <a class="button is-small is-link" href="{% url 'listings' %}">Edit Listing</a>
           </td>
           <td>
-            <a class="button is-small is-danger" href="{% url 'listing' listing.id %}">Delete Listing</a>
+            <form action="{% url 'listing_delete' listing.id %}" method="POST">
+              {% csrf_token %}
+              <button class="button is-small is-danger" type="submit">Delete Listing</button>
+            </form>
           </td>
         </tr>
         {% endfor %}
@@ -60,7 +63,7 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Listing</th>
+          <th>Listing Title</th>
           <th></th>
         </tr>
       </thead>
