@@ -41,7 +41,9 @@
             <tr>
               <th>{{ listing.id }}</th>
               <td>{{ listing.title }}</td>
-              <th>{{ listing.is_rented }}</th>
+              <td><span
+                  class="{% if listing.is_rented == False %}has-text-danger{% else %}has-text-success{% endif %}">{{ listing.is_rented }}</span>
+              </td>
               <td>
                 <a class="button is-small" href="{% url 'listing' listing.id %}">View Listing</a>
               </td>

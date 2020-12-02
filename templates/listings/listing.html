@@ -37,7 +37,7 @@
         <p><strong>Description: </strong> {{listing.description}}</p>
         <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
         <p><strong>Listing Date: </strong> {{listing.list_date}}</p>
-        <p><strong>Rental Status: </strong> <span
+        <p><strong>Is the car currently being rented out?: </strong><span
             class="{% if listing.is_rented == False %}has-text-danger{% else %}has-text-success{% endif %}">{{listing.is_rented}}</span>
         </p>
         <p><strong>Username: </strong>{{listing.user}}</p>
@@ -45,7 +45,8 @@
 
         {% if user.is_authenticated and user.id == listing.user.id %}
         <div class="mt-3">
-          <h4 class="is-size-4 has-text-info">This is your listing.</h4>
+          <p class="is-size-4 has-text-info">This is your listing.</p>
+          <p class="is-size-4 has-text-info">Go to your dashboard to edit or delete this listing.</p>
         </div>
 
         {% elif user.is_authenticated  %}

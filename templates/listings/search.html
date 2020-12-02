@@ -94,6 +94,10 @@
                   <p><strong>Title: </strong>{{listing.title}}</p>
                   <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
 
+                  <p><strong>Is the car currently being rented out?: </strong><span
+                      class="{% if listing.is_rented == False %}has-text-danger{% else %}has-text-success{% endif %}">{{listing.is_rented}}</span>
+                  </p>
+
                   <a href="{% url 'listing' listing.id %}" class="mt-3 button is-dark is-fullwidth">More info</a>
                 </div>
               </div>
