@@ -10,4 +10,4 @@
 - [x] implement list your car form
 - [x] let the listing owner delete their listing
 - [x] let listing owner have an option if their car is currently being rented out
-- [ ] host the web app
+- [x] host the web app (deployed on digital ocean)
