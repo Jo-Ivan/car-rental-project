@@ -37,7 +37,9 @@
         <p><strong>Description: </strong> {{listing.description}}</p>
         <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
         <p><strong>Listing Date: </strong> {{listing.list_date}}</p>
-        <p><strong>Rental Status: </strong> {{listing.is_rented}}</p>
+        <p><strong>Rental Status: </strong> <span
+            class="{% if listing.is_rented == False %}has-text-danger{% else %}has-text-success{% endif %}">{{listing.is_rented}}</span>
+        </p>
         <p><strong>Username: </strong>{{listing.user}}</p>
 
 

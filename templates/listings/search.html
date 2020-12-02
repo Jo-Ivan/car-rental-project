@@ -94,7 +94,7 @@
                   <p><strong>Title: </strong>{{listing.title}}</p>
                   <p><strong>Price: </strong> ${{listing.price | intcomma}} per day</p>
 
-                  <a href="{% url 'listing' listing.id %}" class="button is-dark">More info</a>
+                  <a href="{% url 'listing' listing.id %}" class="mt-3 button is-dark is-fullwidth">More info</a>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
             <a href="?page={{listings.previous_page_number}}" class="pagination-previous">Previous</a>
             {% else %}
 
-            <a class="pagination-previous">Disabled</a>
+            <a class="pagination-previous" style="display:none;">Disabled</a>
 
             {% endif %}
 
@@ -121,7 +121,7 @@
             <a class="pagination-next" href="?page={{listings.next_page_number}}">Next page</a>
             {% else %}
 
-            <a class="pagination-previous">Disabled</a>
+            <a class="pagination-previous" style="display:none;">Disabled</a>
 
             {% endif %}
 
