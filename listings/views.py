@@ -77,7 +77,7 @@ def search(request):
     return render(request, 'listings/search.html', context)
 
 
-def list_your_car_form(request):
+def listyourcar_form(request):
     if request.method == 'POST':
         title = request.POST['title']
         car = request.POST['car']
@@ -85,13 +85,14 @@ def list_your_car_form(request):
         description = request.POST['description']
         price = request.POST['price']
         user_id = request.POST['user_id']
+        photo_main = request.FILES['photo']
 
         listing = Listing(title=title, car=car, borough=borough,
-                          description=description, price=price, user_id=user_id)
+                          description=description, price=price, user_id=user_id, photo_main=photo_main)
 
         listing.save()
 
         messages.success(request, 'Your listing has been submitted')
 
-        return render(request, 'accounts/dashboard.html')
+        return redirect('dashboard')
     return
